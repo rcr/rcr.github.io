@@ -2,190 +2,299 @@
 <html lang="en">
 	<head>
 		<meta charset="utf-8"/>
-		<title>rirc</title>
-		<style type="text/css">
-			html, body, div, span, applet, object, iframe,
-			h1, h2, h3, h4, h5, h6, p, blockquote, pre,
-			a, abbr, acronym, address, big, cite, code,
-			del, dfn, em, img, ins, kbd, q, s, samp,
-			small, strike, strong, sub, sup, tt, var,
-			b, u, i, center,
-			dl, dt, dd, ol, ul, li,
-			fieldset, form, label, legend,
-			table, caption, tbody, tfoot, thead, tr, th, td,
-			article, aside, canvas, details, embed,
-			figure, figcaption, footer, header, hgroup,
-			menu, nav, output, ruby, section, summary,
-			time, mark, audio, video {
-				margin: 0;
-				padding: 0;
-				border: 0;
-				font-size: 100%;
-				font: inherit;
-				vertical-align: baseline;
-			}
-			article, aside, details, figcaption, figure,
-			footer, header, hgroup, menu, nav, section {
-				display: block;
-			}
-			body {
-				line-height: 1;
-			}
-			ol, ul {
-				list-style: none;
-			}
-			blockquote, q {
-				quotes: none;
-			}
-			blockquote:before, blockquote:after,
-			q:before, q:after {
-				content: '';
-				content: none;
-			}
-			table {
-				border-collapse: collapse;
-				border-spacing: 0;
-			}
-		</style>
+		<title>rcr.io - rirc</title>
+		<link href="../static/css/main.css" rel="stylesheet">
 		<style>
-			a:link, a:visited {
-				color: #3399cc;
-				text-decoration: none;
-			}
 			body {
-				font-family: monospace;
-				font-size: 14px;
-				line-height: 1.3em;
-				margin: 0px auto;
-				width: 40em;
+				width: 50em;
 			}
-			footer {
-				border-top: 1px solid #c0c0c0;
-				font-size: 12px;
-				padding: 0.5em 0px;
-				text-align: center;
+			div {
+				margin-bottom: 1.5em;
 			}
-			h1 {
-				font-size: 40px;
+			h1, h2 {
+				margin-bottom: 0;
+			}
+			.ascii {
+				font-size: 1.5em;
 				font-weight: bold;
-				margin: 1em 0px 0.5em 0px;
-			}
-			h2 {
-				font-family: sans-serif;
-				font-size: 26px;
-				font-weight: bold;
-				margin: 1em 0px 0.5em 0px;
-			}
-			ol, ul {
-				list-style: square;
-				list-style-position: inside;
-				font-size: 14px;
-				margin: 0.5em 2.5em;
-				line-height: 1.3em;
-			}
-			p {
-				padding: 0.5em 0px;
-			}
-			.code {
-				font-size: 14px;
-			}
-			.icon {
-				margin-right: 0.8em;
-				vertical-align: middle;
-			}
-			.indent {
-				text-indent: 2em;
+				margin: 0;
 			}
 		</style>
 	</head>
 	<body>
-		<h1>rirc</h1>
-		<p>
-			...is a lightweight open source terminal IRC client written in C by
-			<a href="http://rcr.io">some guy</a>, and a monument to the questionable
-			practice of BDD (<span style="font-style: italic">Beer Driven Development</span>).
-		</p>
-		<p class="indent">
-			<img class="icon" src="../static/img/gh_16.png" alt=""><a href="https://github.com/rcr/rirc">source</a>
-		</p>
-		<h2>rirc is still under development</h2>
-		<p>
-			rirc is a hobby project; although c99 compliant, it may not compile for you.
-			If it does compile, many features you might expect are still left to
-			be implemented and many known (and likely even more unknown) bugs exist.
-		</p>
-		<p>
-			rirc was largely tested on local ngircd, freenode and espernet. It's entirely
-			possible that errors occur on other networks. IRC daemon RFC 2812 standard
-			compliance in the wild seems loose at best.
-		</p>
-		<p>
-			Build issues and bug reports can be sent to <a href="mailto:mail@rcr.io">mail@rcr.io</a>
-		</p>
-		<p>
-			Beers can be bought for the developer via bitcoin at:
-		</p>
-		<p class="indent code">
-			1Fe2BiwkA9ubimfiykBFiTJU1ovBBV3vvv
-		</p>
-		<h2>Building rirc</h2>
-		<p>
-			Grab the latest source, e.g.:
-		</p>
-		<p class="indent code">
-			curl -L http://github.com/rcr/rirc/tarball/master | tar xvf -
-		</p>
-		<p>
-			Build:
-		</p>
-		<p class="indent code">
-			make clean rirc
-		</p>
-		<p>
-			Debug build:
-		</p>
-		<p class="indent code">
-			make clean debug
-		</p>
-		<h2>Basic usage</h2>
-		<p>
-			Hotkeys:
-		</p>
-		<ol style="font-family:monospace;">
-			<li>^N : Go to next channel</li>
-			<li>^P : Go to previous channel</li>
-			<li>^L : Clear channel</li>
-			<li>^X : Close channel</li>
-			<li>^F : Find channel</li>
-			<li>^C : Cancel input/action</li>
-			<li>^U : Scroll buffer up</li>
-			<li>^D : Scroll buffer down</li>
-		</ol>
-		<p>
-			Commands  <a href="http://en.wikipedia.org/wiki/Augmented_Backus%E2%80%93Naur_Form">(ABNF)</a>:
-		</p>
-		<ol style="font-family:monospace;">
-			<li>/connect [&lt;host&gt; | &lt;host:port&gt; | &lt;host port&gt;]</li>
-			<li>/close</li>
-			<li>/disconnect [quit message]</li>
-			<li>/me &lt;message&gt;</li>
-			<li>/join [target[,targets]*]</li>
-			<li>/nick [nick]</li>
-			<li>/part [target[,targets]*] [part message]</li>
-			<li>/priv &lt;target&gt; &lt;message&gt;</li>
-			<li>/raw &lt;raw message&gt;</li>
-			<li>/quit [quit message]</li>
-			<li>/version</li>
-			<li>/ignore [nick]</li>
-			<li>/unignore [nick]</li>
-		</ol>
-		<h2>Known issues</h2>
-		<ul>
-			<li>Written by rcr</li>
-			<li><a href="https://raw.githubusercontent.com/rcr/rirc/master/TODO">TODO</a></li>
-		</ul>
+		<div>
+			<pre class="ascii">      _          </pre>
+			<pre class="ascii"> _ __(_)_ __ ___ </pre>
+			<pre class="ascii">| '__| | '__/ __|</pre>
+			<pre class="ascii">| |  | | | | (__ </pre>
+			<pre class="ascii">|_|  |_|_|  \___|</pre>
+		</div>
+		<div>
+			<p>
+				...is a simple, lightweight, open source terminal IRC client written
+				in C by <a href="http://rcr.io">rcr</a>, and a monument to the
+				questionable practice of BDD (<i>Beer Driven Development</i>).
+			</p>
+			<ul>
+				<li><a href="#install">Installing</a></li>
+				<li><a href="#usage">Usage</a></li>
+			</ul>
+			<p>
+				rirc is a multi-server IRC client with support for CTCP and IRCv3
+				and comes with TLS 1.2 enabled by default. rirc also comes with
+				all of the features you would expect of a terminal chat client,
+				like chat and input history, line editing, etc. Source code:
+			</p>
+			<ul>
+				<li><a href="https://github.com/rcr/rirc">github</a></li>
+				<li><a href="https://sr.ht/~rcr/rirc/">sourcehut</a></li>
+			</ul>
+			<p>Send bug reports, patches, etc, to:</p>
+			<blockquote>mail [@] rcr.io</blockquote>
+			<p>Send bitcoin to:</p>
+			<blockquote>3MdzncjD6ZS8CqdgtPZar1iYx1jHGvBtmN</blockquote>
+		</div>
+		<div id="installing">
+			<h1><a href="#installing">Installing</a></h1>
+			<hr>
+			<p>
+				Building rirc from source requires a c99 compiler,
+				<a href="https://git-scm.com/">Git</a>,
+				<a href="https://www.gnu.org/software/gperf/">GNU gperf</a>, and
+				<a href="https://www.gnu.org/software/make/">GNU make</a>. The binary
+				and man page install paths can be edited in the Makefile or overriden
+				with environment variables and `make -e`. By default they are:
+			</p>
+			<blockquote>
+				<pre>BIN_DIR = /usr/local/bin</pre>
+				<pre>MAN_DIR = /usr/local/share/man/man1</pre>
+			</blockquote>
+			<dl>
+				<dt>Fetch, init:</dt>
+				<dd>
+					<pre>$ git clone https://git.sr.ht/~rcr/rirc</pre>
+					<pre>$ cd rirc</pre>
+					<pre>$ git submodule init</pre>
+					<pre>$ git submodule update --recursive</pre>
+				</dd>
+				<dt>Build, install:</dt>
+				<dd>
+					<pre>$ make</pre>
+					<pre>$ make install</pre>
+				</dd>
+				<dt>Configure:</dt>
+				<dd>
+					<pre>Edit <i>config.h</i> and repeat the build, install steps</pre>
+				</dd>
+			</dl>
+		</div>
+		<div id="usage">
+			<h1><a href="#usage">Usage</a></h1>
+			<hr>
+			<p>
+				rirc is controlled by a combination of CLI arguments, commands and keybinds.
+				Commands beginning with ':' control the behaviour of rirc itself, while
+				commands beginning with '/' are commands for the remote server.
+			</p>
+			<ul>
+				<li><a href="#commands-rirc">:commands</a></li>
+				<li><a href="#commands-irc">/commands (IRC)</a></li>
+				<li><a href="#commands-ircv3">/commands (IRCv3)</a></li>
+				<li><a href="#commands-ctcp">/commands (CTCP)</a></li>
+			</ul>
+			<p>
+			rirc connects to servers on the command line, e.g.:
+			</p>
+			<blockquote>
+				$ rirc -s hostname -n "nick_,nick__,nick___" -c "#chan1,#chan2"
+			</blockquote>
+			<p>
+			rirc can connect to multiple servers by passing additional <b>-s/--server</b>
+			arguments, with all other arguments applying to the server preceding them, e.g.:
+			</p>
+			<blockquote>
+				<pre>$ rirc -s hostname1 -n "nick1" \</pre>
+				<pre>       -s hostname2 -n "nick2" --tls-disable \</pre>
+				<pre>       -s hostname3 -n "nick2" --port 1234 --pass password</pre>
+			</blockquote>
+			<p>
+			By default all connections are TLS enabled over port 6697. The default username,
+			realname and nick can be configured at compile time, or is otherwise set to the
+			Unix username. The complete list of command line arguments:
+			</p>
+			<blockquote>
+				<pre>-s, --server=SERVER      Connect to SERVER</pre>
+				<pre>-p, --port=PORT          Connect using PORT</pre>
+				<pre>-w, --pass=PASS          Connect using PASS</pre>
+				<pre>-u, --username=USERNAME  Connect using USERNAME</pre>
+				<pre>-r, --realname=REALNAME  Connect using REALNAME</pre>
+				<pre>-n, --nicks=NICKS        Comma separated list of nicks to use</pre>
+				<pre>-c, --chans=CHANNELS     Comma separated list of channels to join</pre>
+				<pre>    --ipv4               Connect using only ipv4 addresses</pre>
+				<pre>    --ipv6               Connect using only ipv6 addresses</pre>
+				<pre>    --tls-disable        Set server TLS disabled</pre>
+				<pre>    --tls-verify=MODE    Set server TLS peer certificate verification mode</pre>
+			</blockquote>
+			<dl>
+				<dt>--tls-disable</dt>
+				<dd>Disable TLS handshake and set default port to 6667</dd>
+				<dt>--tls-verify=<u>MODE</u></dt>
+				<dd>Set the TLS x509 certificate verification mode, <b><u>MODE</b></u> must be one of:</dd>
+				<dd>
+					<ul>
+						<li><b>disabled</b> - cert is not verified</li>
+						<li><b>optional</b> - cert is verified, handshake continues on error</li>
+						<li><b>required</b> - cert is verified, handshake is aborted on error</li>
+					</ul>
+				</dd>
+				<dd>The default mode is <b>required</b>.</dd>
+			</dl>
+			<div class="usage-section" id="rirc-keys">
+				<h2><a href="#rirc-keys">keys</a></h2>
+				<hr>
+				<blockquote>
+					<pre><b>^N</b>  :  go to next channel</pre>
+					<pre><b>^P</b>  :  go to previous channel</pre>
+					<pre><b>^L</b>  :  clear channel</pre>
+					<pre><b>^X</b>  :  close channel</pre>
+					<pre><b>^C</b>  :  cancel input/action</pre>
+					<pre><b>^U</b>  :  scroll buffer up</pre>
+					<pre><b>^D</b>  :  scroll buffer down</pre>
+					<pre><b> &larr;</b>  :  input cursor back</pre>
+					<pre><b> &rarr;</b>  :  input cursor forward</pre>
+					<pre><b> &uarr;</b>  :  input history back</pre>
+					<pre><b> &darr;</b>  :  input history forward</pre>
+				</blockquote>
+			</div>
+			<div class="usage-section" id="commands-rirc">
+				<h2><a href="#commands-rirc">commands</a></h2>
+				<hr>
+				<p>Commands:</p>
+				<dl>
+					<dt id="rirc-clear">:clear</dt>
+					<dd>Clear the current channel buffer</dd>
+					<dt id="rirc-close">:close</dt>
+					<dd>Close the current channel buffer</dd>
+					<dt id="rirc-connect">:connect</dt>
+					<dd>Connect to the current server</dd>
+					<dt id="rirc-disconnect">:disconnect</dt>
+					<dd>Disconnect from the current server</dd>
+					<dt id="rirc-quit">:quit</dt>
+					<dd>Quit rirc</dd>
+				</dl>
+			</div>
+			<div class="usage-section" id="commands-irc">
+				<h2><a href="#commands-irc">IRC</a></h2>
+				<hr>
+				<p>
+					All commands beginning with a forward slash result in some command
+					being sent to the server associated with the current buffer.
+				</p>
+				<p>
+					Commands not explicitly listed here can be sent verbatim, e.g.:
+				</p>
+				<blockquote>
+					/mycommand target :foo bar baz
+				</blockquote>
+				<dl>
+					<dt>/away [message]</dt>
+					<dt>/emote [message]</dt>
+					<dt>/join [channels [keys]]</dt>
+					<dt>/notice &lt;target&gt; &lt;message&gt;</dt>
+					<dt>/part [message]</dt>
+					<dt>/privmsg &lt;target&gt; &lt;message&gt;</dt>
+					<dt>/quit [message]</dt>
+					<dt>/topic [message]</dt>
+					<dt>/topic-unset</dt>
+				</dl>
+			</div>
+			<div class="usage-section" id="commands-ircv3">
+				<h2><a href="#commands-ircv3">IRCv3</a></h2>
+				<hr>
+				<p>
+					rirc supports a number of IRCv3.2 extensions, enabled by default. If
+					a server also supports these extensions they will be requested during
+					connection registration. The supported extensions are:
+				</p>
+				<ul>
+					<li><a href="https://ircv3.net/specs/extensions/account-notify-3.1">account-notify</a></li>
+					<li><a href="https://ircv3.net/specs/extensions/away-notify-3.1">away-notify</a></li>
+					<li><a href="https://ircv3.net/specs/extensions/chghost-3.2">chghost</a></li>
+					<li><a href="https://ircv3.net/specs/extensions/extended-join-3.1">extended-join</a></li>
+					<li><a href="https://ircv3.net/specs/extensions/invite-notify-3.2">invite-notify</a></li>
+					<li><a href="https://ircv3.net/specs/extensions/multi-prefix-3.1">multi-prefix</a></li>
+				</ul>
+				<dl>
+					<dt>/cap-ls</dt>
+					<dd>
+						List the IRCv3 capabilities supported by the server.
+					</dd>
+					<dt>/cap-list</dt>
+					<dd>
+						List the IRCv3 capabilities currently enabled.
+					</dd>
+				</dl>
+			</div>
+			<div class="usage-section" id="commands-ctcp">
+				<h2><a href="#commands-ctcp">CTCP</a></h2>
+				<hr>
+				<p>
+					CTCP (Client to Client Protocol) is a common extension that allows clients
+					to query meta data about one another through automated responses. It's also
+					used to implement emotes or actions. Clients may choose not to implement CTCP,
+					and users may have some or all common CTCP types disabled for privacy reasons.
+					Some CTCP message types, such as <i>FINGER</i> and <i>CLIENTINFO</i>, are
+					largely obsolete.
+				</p>
+				<p>
+					CTCP commands with an optional <b>[nick]</b> parameter will be sent to the
+					current private chat when one is not given.
+				</p>
+				<dl>
+					<dt>/ctcp-action &lt;nick&gt; &lt;text&gt;</dt>
+					<dd>
+						Send <b>&lt;text&gt;</b> to <b>&lt;nick&gt;</b> as an action or emote.
+						This command can be used to send an <b>/emote</b> to a specific target.
+						Clients typically display the received action text in the third-person,
+						e.g.:
+						<blockquote>
+							<i>* rcr goes to bed</i>
+						</blockquote>
+						This message type has no response.
+					</dd>
+					<dt>/ctcp-clientinfo [nick]</dt>
+					<dd>
+						Query a client for it's CTCP capabilities.
+					</dd>
+					<dt>/ctcp-finger [nick]</dt>
+					<dd>
+						Query a client for miscellaneous info, typically the target's realname.
+					</dd>
+					<dt>/ctcp-ping [nick]</dt>
+					<dd>
+						Query a client for reachability and latency.
+					</dd>
+					<dt>/ctcp-source [nick]</dt>
+					<dd>
+						Query a client for the location of it's source code.
+					</dd>
+					<dt>/ctcp-time [nick]</dt>
+					<dd>
+						Query a client for it's local time in human-readable form.
+					</dd>
+					<dt>/ctcp-userinfo [nick]</dt>
+					<dd>
+						Query a client for user info, typically the target's realname.
+					</dd>
+					<dt>/ctcp-version [nick]</dt>
+					<dd>
+						Query a client for it's name and version.
+					</dd>
+				</dl>
+			</div>
+		</div>
 		<footer>
-			&copy; Richard C. Robbins, <script>document.write(new Date().getFullYear())</script>
+			&copy; rcr <script>document.write(new Date().getFullYear())</script>
 		</footer>
 	</body>
 </html>
