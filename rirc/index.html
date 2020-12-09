@@ -3,7 +3,7 @@
 	<head>
 		<meta charset="utf-8"/>
 		<title>rcr.io - rirc</title>
-		<link href="../static/css/main.css" rel="stylesheet">
+		<link href="/static/css/main.css" rel="stylesheet">
 		<style>
 			body {
 				width: 50em;
@@ -15,7 +15,7 @@
 				margin-bottom: 0;
 			}
 			.ascii {
-				font-size: 1.5em;
+				font-size: 1.6em;
 				font-weight: bold;
 				margin: 0;
 			}
@@ -31,7 +31,7 @@
 		</div>
 		<div>
 			<p>
-				...is a simple, lightweight, open source terminal IRC client written
+				...is a lightweight, open source terminal IRC client written
 				in C by <a href="http://rcr.io">rcr</a>, and a monument to the
 				questionable practice of BDD (<i>Beer Driven Development</i>).
 			</p>
@@ -49,10 +49,24 @@
 				<li><a href="https://github.com/rcr/rirc">github</a></li>
 				<li><a href="https://sr.ht/~rcr/rirc/">sourcehut</a></li>
 			</ul>
-			<p>Send bug reports, patches, etc, to:</p>
-			<blockquote>mail [@] rcr.io</blockquote>
-			<p>Send bitcoin to:</p>
-			<blockquote>3MdzncjD6ZS8CqdgtPZar1iYx1jHGvBtmN</blockquote>
+			<p>
+				Talk to me on Freenode:
+			</p>
+			<blockquote>
+				user <b>rcr</b> or channel <b>#rirc</b>
+			</blockquote>
+			<p>
+				Send bug reports, patches, etc, to:
+			</p>
+			<blockquote>
+				mail [@] rcr.io
+			</blockquote>
+			<p>
+				Send bitcoin to:
+			</p>
+			<blockquote>
+				<b>3MdzncjD6ZS8CqdgtPZar1iYx1jHGvBtmN</b>
+			</blockquote>
 		</div>
 		<div id="installing">
 			<h1><a href="#installing">Installing</a></h1>
@@ -103,14 +117,14 @@
 				<li><a href="#commands-ctcp">/commands (CTCP)</a></li>
 			</ul>
 			<p>
-			rirc connects to servers on the command line, e.g.:
+				rirc connects to servers on the command line, e.g.:
 			</p>
 			<blockquote>
 				$ rirc -s hostname -n "nick_,nick__,nick___" -c "#chan1,#chan2"
 			</blockquote>
 			<p>
-			rirc can connect to multiple servers by passing additional <b>-s/--server</b>
-			arguments, with all other arguments applying to the server preceding them, e.g.:
+				rirc can connect to multiple servers by passing additional <b>-s/--server</b>
+				arguments, with all other arguments applying to the server preceding them, e.g.:
 			</p>
 			<blockquote>
 				<pre>$ rirc -s hostname1 -n "nick1" \</pre>
@@ -118,9 +132,9 @@
 				<pre>       -s hostname3 -n "nick2" --port 1234 --pass password</pre>
 			</blockquote>
 			<p>
-			By default all connections are TLS enabled over port 6697. The default username,
-			realname and nick can be configured at compile time, or is otherwise set to the
-			Unix username. The complete list of command line arguments:
+				By default all connections are TLS enabled over port 6697. The default username,
+				realname and nick can be configured at compile time, or is otherwise set to the
+				Unix username. The complete list of command line arguments:
 			</p>
 			<blockquote>
 				<pre>-s, --server=SERVER      Connect to SERVER</pre>
@@ -153,23 +167,24 @@
 				<h2><a href="#rirc-keys">keys</a></h2>
 				<hr>
 				<blockquote>
-					<pre>^N  :  go to next channel</pre>
-					<pre>^P  :  go to previous channel</pre>
-					<pre>^L  :  clear channel</pre>
-					<pre>^X  :  close channel</pre>
-					<pre>^C  :  cancel input/action</pre>
-					<pre>^U  :  scroll buffer up</pre>
-					<pre>^D  :  scroll buffer down</pre>
-					<pre> &larr;  :  input cursor back</pre>
-					<pre> &rarr;  :  input cursor forward</pre>
-					<pre> &uarr;  :  input history back</pre>
-					<pre> &darr;  :  input history forward</pre>
+					<table>
+						<tr><td><b>^N</b></td><td>&nbsp;:&nbsp;</td><td>go to next channel</td></tr>
+						<tr><td><b>^P</b></td><td>&nbsp;:&nbsp;</td><td>go to previous channel</td></tr>
+						<tr><td><b>^L</b></td><td>&nbsp;:&nbsp;</td><td>clear channel</td></tr>
+						<tr><td><b>^X</b></td><td>&nbsp;:&nbsp;</td><td>close channel</td></tr>
+						<tr><td><b>^C</b></td><td>&nbsp;:&nbsp;</td><td>cancel input/action</td></tr>
+						<tr><td><b>^U</b></td><td>&nbsp;:&nbsp;</td><td>scroll buffer up</td></tr>
+						<tr><td><b>^D</b></td><td>&nbsp;:&nbsp;</td><td>scroll buffer down</td></tr>
+						<tr><td><b>&nbsp&larr;</b></td><td>&nbsp;:&nbsp;</td><td>input cursor back</td></tr>
+						<tr><td><b>&nbsp&rarr;</b></td><td>&nbsp;:&nbsp;</td><td>input cursor forward</td></tr>
+						<tr><td><b>&nbsp&uarr;</b></td><td>&nbsp;:&nbsp;</td><td>input history back</td></tr>
+						<tr><td><b>&nbsp&darr;</b></td><td>&nbsp;:&nbsp;</td><td>input history forward</td></tr>
+					</table>
 				</blockquote>
 			</div>
 			<div class="usage-section" id="commands-rirc">
 				<h2><a href="#commands-rirc">commands</a></h2>
 				<hr>
-				<p>Commands:</p>
 				<dl>
 					<dt id="rirc-clear">:clear</dt>
 					<dd>Clear the current channel buffer</dd>
