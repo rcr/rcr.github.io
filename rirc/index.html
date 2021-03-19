@@ -1,38 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
 	<head>
-		<meta charset="utf-8"/>
-		<title>rcr.io - rirc</title>
-		<link href="/static/css/main.css" rel="stylesheet">
-		<style>
-			body {
-				width: 50em;
-			}
-			div {
-				margin-bottom: 1.5em;
-			}
-			h1, h2 {
-				margin-bottom: 0;
-			}
-			.ascii {
-				font-size: 1.6em;
-				font-weight: bold;
-				margin: 0;
-			}
-		</style>
+		<meta charset="UTF-8"/>
+		<meta name="description" content="rirc -- a lightweight, open source terminal IRC client written in C"/>
+		<meta name="keywords" content="rcr rirc irc ircv3"/>
+		<meta name="viewport" content="width=device-width, initial-scale=1"/>
+		<link rel="stylesheet" href="/static-html/main.css"/>
+		<title>rcr.io -- rirc</title>
 	</head>
 	<body>
 		<div>
-			<pre class="ascii">      _          </pre>
-			<pre class="ascii"> _ __(_)_ __ ___ </pre>
-			<pre class="ascii">| '__| | '__/ __|</pre>
-			<pre class="ascii">| |  | | | | (__ </pre>
-			<pre class="ascii">|_|  |_|_|  \___|</pre>
+			<pre class="rirc-ascii">      _          </pre>
+			<pre class="rirc-ascii"> _ __(_)_ __ ___ </pre>
+			<pre class="rirc-ascii">| '__| | '__/ __|</pre>
+			<pre class="rirc-ascii">| |  | | | | (__ </pre>
+			<pre class="rirc-ascii">|_|  |_|_|  \___|</pre>
 		</div>
 		<div>
+			<hr>
 			<p>
 				...is a lightweight, open source terminal IRC client written
-				in C by <a href="http://rcr.io">rcr</a>, and a monument to the
+				in C by <a href="/">rcr</a>, and a monument to the
 				questionable practice of BDD (<i>Beer Driven Development</i>).
 			</p>
 			<ul>
@@ -46,36 +34,36 @@
 				like chat and input history, line editing, etc. Source code:
 			</p>
 			<ul>
-				<li><a href="https://github.com/rcr/rirc">github</a></li>
-				<li><a href="https://sr.ht/~rcr/rirc/">sourcehut</a></li>
+				<li><a rel="noreferrer noopener" href="https://github.com/rcr/rirc">github</a></li>
+				<li><a rel="noreferrer noopener" href="https://sr.ht/~rcr/rirc/">sourcehut</a></li>
 			</ul>
 			<p>
-				Talk to me on Freenode:
+				Talk to me on <a href="https://webchat.freenode.net/">Freenode</a>:
+				<blockquote>
+					user <b>rcr</b> or channel <b>#rirc</b>
+				</blockquote>
 			</p>
-			<blockquote>
-				user <b>rcr</b> or channel <b>#rirc</b>
-			</blockquote>
 			<p>
 				Send bug reports, patches, etc, to:
+				<blockquote>
+					mail [@] rcr.io
+				</blockquote>
 			</p>
-			<blockquote>
-				mail [@] rcr.io
-			</blockquote>
 			<p>
 				Send bitcoin to:
+				<blockquote>
+					<b>3MdzncjD6ZS8CqdgtPZar1iYx1jHGvBtmN</b>
+				</blockquote>
 			</p>
-			<blockquote>
-				<b>3MdzncjD6ZS8CqdgtPZar1iYx1jHGvBtmN</b>
-			</blockquote>
 		</div>
 		<div id="installing">
 			<h1><a href="#installing">Installing</a></h1>
 			<hr>
 			<p>
 				Building rirc from source requires a c99 compiler,
-				<a href="https://git-scm.com/">Git</a>,
-				<a href="https://www.gnu.org/software/gperf/">GNU gperf</a>, and
-				<a href="https://www.gnu.org/software/make/">GNU make</a>. The binary
+				<a rel="noreferrer noopener" href="https://git-scm.com/">Git</a>,
+				<a rel="noreferrer noopener" href="https://www.gnu.org/software/gperf/">GNU gperf</a>, and
+				<a rel="noreferrer noopener" href="https://www.gnu.org/software/make/">GNU make</a>. The binary
 				and man page install paths can be edited in the Makefile or overriden
 				with environment variables and `make -e`. By default they are:
 			</p>
@@ -153,7 +141,7 @@
 				<dt>--tls-disable</dt>
 				<dd>Disable TLS handshake and set default port to 6667</dd>
 				<dt>--tls-verify=<u>MODE</u></dt>
-				<dd>Set the TLS x509 certificate verification mode, <b><u>MODE</b></u> must be one of:</dd>
+				<dd>Set the TLS x509 certificate verification mode, <b><u>MODE</u></b> must be one of:</dd>
 				<dd>
 					<ul>
 						<li><b>disabled</b> - cert is not verified</li>
@@ -175,10 +163,10 @@
 						<tr><td><b>^C</b></td><td>&nbsp;:&nbsp;</td><td>cancel input/action</td></tr>
 						<tr><td><b>^U</b></td><td>&nbsp;:&nbsp;</td><td>scroll buffer up</td></tr>
 						<tr><td><b>^D</b></td><td>&nbsp;:&nbsp;</td><td>scroll buffer down</td></tr>
-						<tr><td><b>&nbsp&larr;</b></td><td>&nbsp;:&nbsp;</td><td>input cursor back</td></tr>
-						<tr><td><b>&nbsp&rarr;</b></td><td>&nbsp;:&nbsp;</td><td>input cursor forward</td></tr>
-						<tr><td><b>&nbsp&uarr;</b></td><td>&nbsp;:&nbsp;</td><td>input history back</td></tr>
-						<tr><td><b>&nbsp&darr;</b></td><td>&nbsp;:&nbsp;</td><td>input history forward</td></tr>
+						<tr><td><b>&nbsp;&larr;</b></td><td>&nbsp;:&nbsp;</td><td>input cursor back</td></tr>
+						<tr><td><b>&nbsp;&rarr;</b></td><td>&nbsp;:&nbsp;</td><td>input cursor forward</td></tr>
+						<tr><td><b>&nbsp;&uarr;</b></td><td>&nbsp;:&nbsp;</td><td>input history back</td></tr>
+						<tr><td><b>&nbsp;&darr;</b></td><td>&nbsp;:&nbsp;</td><td>input history forward</td></tr>
 					</table>
 				</blockquote>
 			</div>
@@ -213,14 +201,21 @@
 				</blockquote>
 				<dl>
 					<dt>/away [message]</dt>
-					<dt>/emote [message]</dt>
+					<dd></dd>
 					<dt>/join [channels [keys]]</dt>
+					<dd></dd>
 					<dt>/notice &lt;target&gt; &lt;message&gt;</dt>
+					<dd></dd>
 					<dt>/part [message]</dt>
+					<dd></dd>
 					<dt>/privmsg &lt;target&gt; &lt;message&gt;</dt>
+					<dd></dd>
 					<dt>/quit [message]</dt>
+					<dd></dd>
 					<dt>/topic [message]</dt>
+					<dd></dd>
 					<dt>/topic-unset</dt>
+					<dd></dd>
 				</dl>
 			</div>
 			<div class="usage-section" id="commands-ircv3">
@@ -232,12 +227,12 @@
 					connection registration. The supported extensions are:
 				</p>
 				<ul>
-					<li><a href="https://ircv3.net/specs/extensions/account-notify-3.1">account-notify</a></li>
-					<li><a href="https://ircv3.net/specs/extensions/away-notify-3.1">away-notify</a></li>
-					<li><a href="https://ircv3.net/specs/extensions/chghost-3.2">chghost</a></li>
-					<li><a href="https://ircv3.net/specs/extensions/extended-join-3.1">extended-join</a></li>
-					<li><a href="https://ircv3.net/specs/extensions/invite-notify-3.2">invite-notify</a></li>
-					<li><a href="https://ircv3.net/specs/extensions/multi-prefix-3.1">multi-prefix</a></li>
+					<li><a rel="noreferrer noopener" href="https://ircv3.net/specs/extensions/account-notify-3.1">account-notify</a></li>
+					<li><a rel="noreferrer noopener" href="https://ircv3.net/specs/extensions/away-notify-3.1">away-notify</a></li>
+					<li><a rel="noreferrer noopener" href="https://ircv3.net/specs/extensions/chghost-3.2">chghost</a></li>
+					<li><a rel="noreferrer noopener" href="https://ircv3.net/specs/extensions/extended-join-3.1">extended-join</a></li>
+					<li><a rel="noreferrer noopener" href="https://ircv3.net/specs/extensions/invite-notify-3.2">invite-notify</a></li>
+					<li><a rel="noreferrer noopener" href="https://ircv3.net/specs/extensions/multi-prefix-3.1">multi-prefix</a></li>
 				</ul>
 				<dl>
 					<dt>/cap-ls</dt>
@@ -308,8 +303,5 @@
 				</dl>
 			</div>
 		</div>
-		<footer>
-			&copy; rcr <script>document.write(new Date().getFullYear())</script>
-		</footer>
 	</body>
 </html>

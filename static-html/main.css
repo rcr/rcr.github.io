@@ -1,0 +1,55 @@
+* { margin: 0; font-family: monospace; }
+
+body { margin: 3em auto; width: 48em; }
+
+a         { color: #3399cc; }
+a:hover   { text-decoration: underline; }
+a:link    { text-decoration: none; }
+a:visited { text-decoration: none; }
+
+blockquote, div, dl, dt, dd, ol, ul, p, hr { margin-bottom: 1em; }
+
+
+dd, blockquote { margin-left: 3em; }
+
+
+
+ol, ul { list-style: square; list-style-position: inside; }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*
+dl {
+	margin: 2em 0em;
+}
+dd {
+	margin: 0.8em 3em;
+}
+dt {
+	margin-top: 1.5em;
+	font-weight: bold;
+}
+*/
+
+
+
+/*
+.rirc-ascii {
+	font-size: 1.6em;
+	font-weight: bold;
+	margin: 0;
+}
+*/
