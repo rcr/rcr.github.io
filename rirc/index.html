@@ -20,8 +20,8 @@
 			<hr>
 			<p>
 				...is a lightweight, open source terminal IRC client written
-				in C by <a href="/">rcr</a>, and a monument to the
-				questionable practice of BDD (<i>Beer Driven Development</i>).
+				in C by <a href="/">rcr</a>, and a monument to the questionable
+				practice of BDD (<i>Beer Driven Development</i>).
 			</p>
 			<ul>
 				<li><a href="#installing">Installing</a></li>
@@ -60,33 +60,38 @@
 			<h1><a href="#installing">Installing</a></h1>
 			<hr>
 			<p>
-				Building rirc from source requires a c99 compiler,
-				<a rel="noreferrer noopener" href="https://git-scm.com/">Git</a>,
-				<a rel="noreferrer noopener" href="https://www.gnu.org/software/gperf/">GNU gperf</a>, and
-				<a rel="noreferrer noopener" href="https://www.gnu.org/software/make/">GNU make</a>. The binary
-				and man page install paths can be edited in the Makefile or overriden
-				with environment variables and `make -e`. By default they are:
+				Building rirc from source requires a c11 compiler, GNU gperf and GNU make.
+			</p>
+			<ul>
+				<li><a rel="noreferrer noopener" href="https://www.gnu.org/software/gperf/">GNU gperf</a></li>
+				<li><a rel="noreferrer noopener" href="https://www.gnu.org/software/make/">GNU make</a></li>
+			</ul>
+			<p>
+				The build toolchain and install paths can be configured via standard environment
+				variables, i.e.:
 			</p>
 			<blockquote>
-				<pre>BIN_DIR = /usr/local/bin</pre>
-				<pre>MAN_DIR = /usr/local/share/man/man1</pre>
+				CC, CFLAGS, LDFLAGS, DESTDIR, PREFIX
 			</blockquote>
 			<dl>
-				<dt>Fetch, init:</dt>
+				<dt>Default install paths:</dt>
 				<dd>
-					<pre>$ git clone https://git.sr.ht/~rcr/rirc</pre>
-					<pre>$ cd rirc</pre>
-					<pre>$ git submodule init</pre>
-					<pre>$ git submodule update --recursive</pre>
+					<pre>/usr/local/bin</pre>
+					<pre>/usr/local/share/man/man1</pre>
 				</dd>
-				<dt>Build, install:</dt>
+				<dt>Fetch:</dt>
 				<dd>
-					<pre>$ make</pre>
+					<pre>$ curl -s https://git.sr.ht/~rcr/rirc/archive/v0.1.5.tar.gz | tar xz</pre>
+				</dd>
+				<dt>Install:</dt>
+				<dd>
+					<pre>$ cd rirc-v0.1.5</pre>
+					<pre>$ make </pre>
 					<pre>$ make install</pre>
 				</dd>
 				<dt>Configure:</dt>
 				<dd>
-					<pre>Edit <i>config.h</i> and repeat the build, install steps</pre>
+					<pre>Edit <b>config.h</b> and repeat the install step</pre>
 				</dd>
 			</dl>
 		</div>
